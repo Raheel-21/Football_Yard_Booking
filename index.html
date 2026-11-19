@@ -502,8 +502,8 @@
 
     <div class="demo-hint">
       <strong>Demo Credentials</strong><br>
-      👤 User: <strong>user@footballyard.com</strong> / <strong>user123</strong><br>
-      🔑 Admin: <strong>admin@footballyard.com</strong> / <strong>admin123</strong>
+       User: <strong>user@footballyard.com</strong> / <strong>user123</strong><br>
+       Admin: <strong>admin@footballyard.com</strong> / <strong>admin123</strong>
     </div>
   </div>
 </div>
@@ -529,7 +529,7 @@
 <div class="modal-overlay" id="email-modal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('email-modal')">✕</button>
-    <h2 id="email-modal-title">📧 Email Notification</h2>
+    <h2 id="email-modal-title"> Email Notification</h2>
     <p style="font-size:13px;color:var(--muted);margin-bottom:4px;">Sent automatically by the system</p>
     <div class="email-preview">
       <div class="email-row"><span>From:</span><span>noreply@footballyard.com</span></div>
@@ -616,8 +616,8 @@
       <button class="fb-tab active" onclick="switchTab('courts',this)">Courts</button>
       <button class="fb-tab" onclick="switchTab('bookings',this)">My Bookings</button>
       <button class="fb-tab" onclick="switchTab('teams',this)">Team & Payment</button>
-      <button class="fb-tab" id="tab-admin-users" style="display:none" onclick="switchTab('admin-users',this)">👑 Users</button>
-      <button class="fb-tab" id="tab-admin-courts" style="display:none" onclick="switchTab('admin-courts',this)">👑 Manage Courts</button>
+      <button class="fb-tab" id="tab-admin-users" style="display:none" onclick="switchTab('admin-users',this)"> Users</button>
+      <button class="fb-tab" id="tab-admin-courts" style="display:none" onclick="switchTab('admin-courts',this)"> Manage Courts</button>
     </div>
 
     <div class="fb-content">
@@ -785,12 +785,12 @@ function doRegister() {
   closeModal('register-modal');
   showEmailModal(
     email,
-    '⚽ Welcome to Football Yard!',
+    ' Welcome to Football Yard!',
     `<p>Hi <strong>${fname}</strong>,</p>
     <p style="margin-top:10px">Your account has been created successfully! You can now log in and start booking football courts in Cairo.</p>
-    <p style="margin-top:10px">📧 Email: <strong>${email}</strong></p>
-    <p style="margin-top:6px">🔒 Password: Set by you</p>
-    <p style="margin-top:10px">Welcome to the team! ⚽</p>`
+    <p style="margin-top:10px"> Email: <strong>${email}</strong></p>
+    <p style="margin-top:6px"> Password: Set by you</p>
+    <p style="margin-top:10px">Welcome to the team! </p>`
   );
   showToast('✓ Account created! Check the welcome email.');
 }
@@ -822,14 +822,14 @@ function launchApp() {
 
   showEmailModal(
     currentUser.email,
-    currentUser.isAdmin ? '🔑 Admin Login Detected' : '✅ Login Successful — Football Yard',
+    currentUser.isAdmin ? '🔑 Admin Login Detected' : ' Login Successful — Football Yard',
     currentUser.isAdmin
       ? `<p>Hi <strong>${currentUser.fname}</strong>,</p>
          <p style="margin-top:10px">An admin session was started on your account. If this wasn't you, please contact support immediately.</p>
-         <p style="margin-top:10px">🕐 Time: ${new Date().toLocaleString('en-EG')}</p>`
+         <p style="margin-top:10px"> Time: ${new Date().toLocaleString('en-EG')}</p>`
       : `<p>Hi <strong>${currentUser.fname}</strong>,</p>
          <p style="margin-top:10px">You've successfully logged in to Football Yard. You can now browse and reserve available courts in Cairo.</p>
-         <p style="margin-top:10px">🕐 Login time: ${new Date().toLocaleString('en-EG')}</p>
+         <p style="margin-top:10px"> Login time: ${new Date().toLocaleString('en-EG')}</p>
          <p style="margin-top:10px">If this wasn't you, please change your password immediately.</p>`
   );
 }
@@ -882,14 +882,14 @@ function reserve(name, price, time) {
   updateStats();
   showEmailModal(
     currentUser.email,
-    `🏟️ Booking Confirmed — ${name}`,
+    ` Booking Confirmed — ${name}`,
     `<p>Hi <strong>${currentUser.fname}</strong>,</p>
     <p style="margin-top:10px">Your court has been reserved successfully!</p>
-    <p style="margin-top:12px">📍 <strong>Court:</strong> ${name}</p>
-    <p style="margin-top:4px">🕐 <strong>Time Slot:</strong> ${time}</p>
-    <p style="margin-top:4px">💰 <strong>Price:</strong> ${price}</p>
-    <p style="margin-top:4px">📅 <strong>Date:</strong> ${new Date().toLocaleDateString('en-EG')}</p>
-    <p style="margin-top:12px">See you on the pitch! ⚽</p>`
+    <p style="margin-top:12px"> <strong>Court:</strong> ${name}</p>
+    <p style="margin-top:4px"> <strong>Time Slot:</strong> ${time}</p>
+    <p style="margin-top:4px"> <strong>Price:</strong> ${price}</p>
+    <p style="margin-top:4px"> <strong>Date:</strong> ${new Date().toLocaleDateString('en-EG')}</p>
+    <p style="margin-top:12px">See you on the pitch! </p>`
   );
 }
 
@@ -898,7 +898,7 @@ function renderMyBookings() {
   const wrap = document.getElementById('my-bookings-list');
   if (!myBookings.length) {
     wrap.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--muted);">
-      <div style="font-size:40px;margin-bottom:12px;">⚽</div>
+      <div style="font-size:40px;margin-bottom:12px;"></div>
       <p style="font-size:15px;font-weight:500;color:var(--text);margin-bottom:6px;">No bookings yet</p>
       <p style="font-size:13px;">Browse available courts and reserve one!</p>
     </div>`;
@@ -981,11 +981,11 @@ function saveUser() {
   showToast('✓ User updated successfully');
   showEmailModal(
     u.email,
-    '📋 Your Account Has Been Updated',
+    ' Your Account Has Been Updated',
     `<p>Hi <strong>${u.fname}</strong>,</p>
     <p style="margin-top:10px">An admin has updated your Football Yard account details.</p>
     <p style="margin-top:10px">If you did not expect this change, please contact support.</p>
-    <p style="margin-top:4px">🕐 Updated: ${new Date().toLocaleString('en-EG')}</p>`
+    <p style="margin-top:4px"> Updated: ${new Date().toLocaleString('en-EG')}</p>`
   );
 }
 
@@ -1051,13 +1051,13 @@ function joinTeam() { showToast('✓ You joined the team!'); }
 function pay() {
   showEmailModal(
     currentUser.email,
-    '💳 Payment Confirmed — Football Yard',
+    ' Payment Confirmed — Football Yard',
     `<p>Hi <strong>${currentUser.fname}</strong>,</p>
     <p style="margin-top:10px">Your payment has been received and your booking is confirmed.</p>
-    <p style="margin-top:12px">💰 Amount paid: <strong>220 EGP</strong></p>
-    <p style="margin-top:4px">🏟️ Court: Champions booking session</p>
-    <p style="margin-top:4px">📅 Date: ${new Date().toLocaleDateString('en-EG')}</p>
-    <p style="margin-top:12px">Enjoy the game! ⚽</p>`
+    <p style="margin-top:12px"> Amount paid: <strong>220 EGP</strong></p>
+    <p style="margin-top:4px"> Court: Champions booking session</p>
+    <p style="margin-top:4px"> Date: ${new Date().toLocaleDateString('en-EG')}</p>
+    <p style="margin-top:12px">Enjoy the game! </p>`
   );
 }
 
